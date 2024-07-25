@@ -1,0 +1,250 @@
+/* Layout container */
+.c-container {
+  max-width: $max-width + $min-offset * 2;
+  margin: 0 auto;
+  padding: 0 $min-offset;
+
+  @include media($s) {
+    max-width: $max-width + $max-offset * 2;
+    padding: 0 $max-offset;
+  }
+}
+
+/* Logo */
+.c-logo {
+  display: flex;
+  align-items: center;
+  gap: 5.5px;
+
+  svg {
+    @include media($s) {
+      height: 31.18px;
+    }
+  }
+
+  span {
+    font-size: 14.42px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #595653;
+
+    @include media($s) {
+      font-size: 16.65px;
+    }
+  }
+}
+
+/* Headers */
+.c-h1,
+.c-h2,
+.c-h3 {
+  font-family: $font2;
+  text-transform: uppercase;
+}
+
+.c-h1 {
+  font-size: 36px;
+  line-height: 1.1;
+
+  @include media($s) {
+    font-size: 60px;
+  }
+}
+
+.c-h2 {
+  font-size: 36px;
+  line-height: 1.1;
+
+  @include media($s) {
+    font-size: 54px;
+    line-height: 1.2;
+  }
+}
+
+.c-h3 {
+  font-size: 28px;
+  line-height: initial;
+
+  @include media($xl) {
+    font-size: 36px;
+  }
+
+  span {
+    color: $theme-color4;
+    font-weight: 700;
+  }
+}
+
+/* Buttons */
+.c-btn {
+  padding: 11px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 3em;
+  cursor: pointer;
+
+  &:hover {
+    transition: all .15s;
+  }
+
+  @include media($s) {
+    padding: 13px 20px;
+  }
+
+  &_dark {
+    color: $white;
+    background-color: $theme-color2;
+    border-color: transparent;
+
+    &:hover {
+      color: $theme-color2;
+      background-color: $theme-color6;
+      border-color: $theme-color6;
+    }
+  }
+
+  &_light {
+    color: $theme-color2;
+    background-color: rgba($white, .9);
+    border-color: transparent;
+
+    &:hover {
+      color: $white;
+      background-color: $theme-color2;
+      border-color: $theme-color2;
+    }
+
+    @include media($s) {
+      background-color: transparent;
+      border-color: $theme-color2;
+    }
+  }
+}
+
+.c-btn-sm {
+  width: fit-content;
+  padding: 7px 11px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 3em;
+  cursor: pointer;
+  color: $theme-color5;
+  background-color: transparent;
+
+  &:hover {
+    transition: all .15s;
+    color: $white;
+    background-color: $theme-color5;
+    border-color: $theme-color5;
+  }
+}
+
+/* Ticker */
+.c-ticker {
+  max-width: 100vw;
+  background-color: $theme-color4;
+  font-family: $font2;
+  font-size: 16px;
+  color: $white;
+  text-transform: uppercase;
+
+  &__inner {
+    display: flex;
+    overflow: hidden;
+  }
+
+  &__items {
+    min-width: 100%;
+    display: flex;
+    flex-shrink: 0;
+    height: 38px;
+    animation: run 25s linear infinite;
+
+    @include media($s) {
+      font-size: 22px;
+      height: 60px;
+    }
+
+    @keyframes run {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  @include media($s) {
+    font-size: 22px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin: 0 12px;
+      border-radius: 50%;
+      background-color: $white;
+    }
+  }
+}
+
+/* Member */
+.c-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img {
+    background: url("#{$images-path}member-bg.jpg") no-repeat;
+    width: 244px;
+    height: 244px;
+    max-width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 28px;
+
+    @include media($s) {
+      width: 320px;
+      height: 320px;
+    }
+
+    img {
+      width: 223px;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: 10px 17px;
+
+      @include media($s) {
+        width: 293px;
+        object-position: 10px 22px;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    color: rgba($theme-color1, .6);
+    margin-bottom: 20px;
+  }
+}

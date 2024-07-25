@@ -1,0 +1,19 @@
+/* Media query */
+@mixin media($args ) {
+  $size: nth($args, 1);
+  $mode: min-width;
+
+  @if length($args)>1 {
+    $mode: nth($args, 1);
+    $size: nth($args, 2);
+  }
+
+  @else {
+    $mode: min-width;
+    $size: nth($args, 1);
+  }
+
+  @media ($mode: $size) {
+    @content;
+  }
+}
